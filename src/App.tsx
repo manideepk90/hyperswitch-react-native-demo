@@ -15,11 +15,10 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PaymentScreen from './PaymentScreen';
-import { getPublishableKey } from '../utils/keys';
-import {HyperProvider} from "hyperswitch-sdk-react-native/src"
+import {HyperProvider} from 'hyperswitch-sdk-react-native/src';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -56,9 +55,8 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  console.log(getPublishableKey())
   return (
-    <HyperProvider publishableKey={"pk_snd_3b33cd9404234113804aa1accaabe22f"}>
+    <HyperProvider publishableKey={'pk_snd_3b33cd9404234113804aa1accaabe22f'}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -70,7 +68,7 @@ function App(): React.JSX.Element {
           </Section>
         </ScrollView>
       </SafeAreaView>
- </HyperProvider>
+    </HyperProvider>
   );
 }
 

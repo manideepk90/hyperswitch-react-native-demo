@@ -66,11 +66,6 @@ export default function PaymentScreen() {
             }
           }
         },
-        // googlePay : {
-        //   countryCode : "+91",
-        //   currencyCode : "INR",
-        //   environment : ""
-        // }
       }
     }
     const paymentSheetResponse = await presentPaymentSheet(params);
@@ -84,7 +79,7 @@ export default function PaymentScreen() {
           setMessage("Payment Success..");
           break;
         default:
-          setMessage("Something went wrong...");
+          setMessage("Something went wrong... Reload Client Secret");
           
         
     }
