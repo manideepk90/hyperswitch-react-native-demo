@@ -1,0 +1,13 @@
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "bs-dependencies": ["@rescript/core"],
+  "bs-dev-dependencies": [],
+  "reason": {
+    "js": {
+      "jsx": 2
+    }
+  },
+  "namespace": false,
+  "suffix": ".res.js"
+}
