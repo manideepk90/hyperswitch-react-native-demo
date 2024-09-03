@@ -8,7 +8,9 @@
     "server": "node server.js",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "re:build": "rescript"
+
   },
   "dependencies": {
     "@juspay-tech/hyperswitch-node": "^1.0.3",

@@ -4,6 +4,31 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
+## Environment Setup
+
+First, you will need to setup **Environment**. setup .env file with the keys from hyperswitch dashboard
+
+```bash
+# Add .env to root folder
+HYPERSWITCH_PUBLISHABLE_KEY=
+HYPERSWITCH_SECRET_KEY=
+PORT=4242
+```
+
+```bash
+# using npm
+npm install
+
+# OR using Yarn
+yarn install
+```
+
+build rescript files
+```bash
+yarn run re:build
+```
+
+
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.

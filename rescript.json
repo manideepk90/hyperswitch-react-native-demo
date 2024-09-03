@@ -1,13 +1,33 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
-  "bs-dependencies": ["@rescript/core"],
-  "bs-dev-dependencies": [],
-  "reason": {
-    "js": {
-      "jsx": 2
-    }
-  },
-  "namespace": false,
-  "suffix": ".res.js"
-}
+    "name": "hyperswitchReactNativeDemo",
+    "jsx": {
+      "version": 4
+    },
+    "sources": [
+      {
+        "dir": "src",
+        "subdirs": true
+      }
+    ],
+    "package-specs": [
+      {
+        "module": "esmodule",
+        "in-source": true
+      }
+    ],
+    "suffix": ".res.js",
+    "bs-dependencies": [
+      "@rescript/core",
+      "rescript-react-native",
+      "@rescript/react",
+      "hyperswitch-sdk-react-native"
+    ],
+    "gentypeconfig": {
+      "module": "esmodule",
+      "moduleResolution": "node",
+      "generatedFileExtension": ".gen.tsx"
+    },
+    "bsc-flags": [
+      "-open RescriptCore"
+    ]
+  }

@@ -1,0 +1,5 @@
+rescript = 1
+g_finger := /Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/node_modules/@rescript/core/lib/ocaml/install.stamp
+g_finger := /Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/node_modules/rescript-react-native/lib/ocaml/install.stamp
+g_finger := /Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/node_modules/@rescript/react/lib/ocaml/install.stamp
+g_finger := /Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/node_modules/hyperswitch-sdk-react-native/lib/ocaml/install.stamp
