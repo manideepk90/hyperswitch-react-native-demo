@@ -6101,9 +6101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hyperswitch-sdk-react-native@portal:./hyperswitch-sdk-react-native::locator=hyperswitchReactNativeDemo%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "hyperswitch-sdk-react-native@portal:./hyperswitch-sdk-react-native::locator=hyperswitchReactNativeDemo%40workspace%3A."
+"hyperswitch-sdk-react-native@https://github.com/aashu331998/hyperswitch-sdk-react-native":
+  version: 0.1.0
+  resolution: "hyperswitch-sdk-react-native@https://github.com/aashu331998/hyperswitch-sdk-react-native.git#commit=b5bd28cac8bd4f3cc713e0256c81668eaf01192b"
   peerDependencies:
     "@sentry/react-native": ^5.9.1
     react: "*"
@@ -6111,8 +6111,9 @@ __metadata:
     react-native-code-push: ^8.1.0
     react-native-inappbrowser-reborn: ^3.7.0
     react-native-svg: ^13.13.0
+  checksum: 10c0/a76dfe18ddf541171fb84b39eb6973eff9ba11d2a73b539c40341fd2a48f077fad71ab4d09eaa8cc692905fb5d7cdaf0d207f8341cf29b99f5aca0462af250af
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "hyperswitchReactNativeDemo@workspace:.":
   version: 0.0.0-use.local
@@ -6135,7 +6136,7 @@ __metadata:
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.19.0"
     express: "npm:^4.19.2"
-    hyperswitch-sdk-react-native: "portal:./hyperswitch-sdk-react-native"
+    hyperswitch-sdk-react-native: "https://github.com/aashu331998/hyperswitch-sdk-react-native"
     jest: "npm:^29.6.3"
     prettier: "npm:2.8.8"
     react: "npm:18.3.1"

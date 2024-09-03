@@ -2,15 +2,14 @@
 
 import {useEffect, useState} from 'react';
 import {
-  Button,
   Dimensions,
   StyleSheet,
   Text,
-  Touchable,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
-import { sessionParams, useHyper } from '../hyperswitch-sdk-react-native/src';
+import { sessionParams, useHyper } from 'hyperswitch-sdk-react-native/src';
 
 export default function PaymentScreen() {
   const {initPaymentSession,presentPaymentSheet} = useHyper();
@@ -18,6 +17,7 @@ export default function PaymentScreen() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [paymentSheetParams, setPaymentSheetParams] = useState({});
+  const isDarkMode = useColorScheme() === 'dark';
 
   const setup = async () => {
     setLoading(true);
@@ -44,8 +44,50 @@ export default function PaymentScreen() {
 
   const checkout = async () => {
     console.log('paymentSheetParams', paymentSheetParams);
-    const paymentSheetResponse = await presentPaymentSheet(paymentSheetParams as sessionParams);
+  
+    const params : sessionParams = {
+      ...paymentSheetParams as sessionParams,
+      configuration : {
+        appearance : {
+          themes : isDarkMode ? "dark" : "light",
+          primaryButton : {
+            colors : {
+              light : {
+                primary : "#3680ef",
+                placeholderText : "grey"
+              },
+              dark : {
+                placeholderText : "white"
+              }
+            },
+            shapes : {
+              borderRadius : 10,
+              borderWidth : 2
+            }
+          }
+        },
+        // googlePay : {
+        //   countryCode : "+91",
+        //   currencyCode : "INR",
+        //   environment : ""
+        // }
+      }
+    }
+    const paymentSheetResponse = await presentPaymentSheet(params);
     console.log(paymentSheetResponse);
+    switch(paymentSheetResponse?.status ){
+        case "cancelled":
+          setMessage("Payment cancelled by user.");
+          setup();
+          break;
+        case "succeded":
+          setMessage("Payment Success..");
+          break;
+        default:
+          setMessage("Something went wrong...");
+          
+        
+    }
   };
 
   return (
@@ -66,6 +108,7 @@ export default function PaymentScreen() {
           {loading ? 'Loading Session...' : 'Checkout'}
         </Text>
       </TouchableOpacity>
+      <Text style={styles.messageText}>{message}</Text>
       <Text style={styles.textView}>{error}</Text>
     </View>
   );
@@ -90,7 +133,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
   },
+  messageText : {
+    color : "#fff"
+  },
   textView: {
-    color: '#000',
+    color: '#f00',
   },
 });
