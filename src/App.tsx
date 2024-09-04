@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PaymentScreen from './PaymentScreen';
-import {HyperProvider} from 'hyperswitch-sdk-react-native/src';
+import { HyperProvider } from '../hyperswitch-sdk-react-native/src';
 
 type SectionProps = PropsWithChildren<{
   title: string;

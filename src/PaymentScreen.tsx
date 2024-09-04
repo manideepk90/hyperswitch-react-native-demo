@@ -9,7 +9,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import {sessionParams, useHyper} from 'hyperswitch-sdk-react-native/src';
+import {sessionParams, useHyper} from './../hyperswitch-sdk-react-native/src';
 import fetchPaymentParams from '../utils/fetchPaymentParams';
 
 export default function PaymentScreen() {

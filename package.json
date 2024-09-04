@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "re:build": "rescript"
+    "re:build": "rescript",
+    "re:start": "rescript build -w"
   },
   "dependencies": {
     "@juspay-tech/hyperswitch-node": "^1.0.3",
@@ -18,7 +19,7 @@
     "@sentry/react-native": "^5.31.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "hyperswitch-sdk-react-native": "https://github.com/aashu331998/hyperswitch-sdk-react-native",
+    "hyperswitch-sdk-react-native": "/Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/hyperswitch-sdk-react-native",
     "react": "18.3.1",
     "react-native": "0.75.2",
     "react-native-code-push": "^8.3.1",
@@ -53,5 +54,8 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "resolutions": {
+    "hyperswitch-sdk-react-native": "portal:/Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/hyperswitch-sdk-react-native"
+  }
 }

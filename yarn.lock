@@ -2956,11 +2956,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=8.1.0":
-  version: 22.5.2
-  resolution: "@types/node@npm:22.5.2"
+  version: 22.5.3
+  resolution: "@types/node@npm:22.5.3"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10c0/624a7fd76229eacc6c158eb3b9afd55b811d7f01976c5f92c630d5b9d47047cc218928c343988484a165ac400e5eb6fe70ea300fc7242deeb0e920c7724290f6
+  checksum: 10c0/a068e31dd424a0eadfba7d9a5c5b415b76cfd729f3caa299674ad257f59df85c5fe77f1d0a343e811864c790baefb9003d7627618ee3cf85400af338481ba29f
   languageName: node
   linkType: hard
 
@@ -5110,8 +5110,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.30.1":
-  version: 7.35.1
-  resolution: "eslint-plugin-react@npm:7.35.1"
+  version: 7.35.2
+  resolution: "eslint-plugin-react@npm:7.35.2"
   dependencies:
     array-includes: "npm:^3.1.8"
     array.prototype.findlast: "npm:^1.2.5"
@@ -5133,7 +5133,7 @@ __metadata:
     string.prototype.repeat: "npm:^1.0.0"
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
-  checksum: 10c0/faaa2108543675951949685208d105d9c3efa0ac8f4d950851b8f20e065b8bf87fdd7e78abae9b0382090bc22e61c00709388f35bdab2a8b1d283f985d310ed7
+  checksum: 10c0/5f891f5a77e902a0ca8d10b23d0b800e90a09400187febe5986c5078d6277baa4b974d6acdbba25baae065dbcf12eb9241b5f5782527d0780314c2ee5006a8af
   languageName: node
   linkType: hard
 
@@ -5580,9 +5580,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.245.0
-  resolution: "flow-parser@npm:0.245.0"
-  checksum: 10c0/0290a6c354632bf926ce8a49573b9fa6c5025e06a57dc6f68413bf29476a84f87ab817a3bf8d3d6fb5a8e4f967aecdd6c82b0d21408b18fc591308d1f5d633cd
+  version: 0.245.1
+  resolution: "flow-parser@npm:0.245.1"
+  checksum: 10c0/0c6f43c3cd0b45392c41bef73352bc031df08972ab1946145741451850371fecd5b622165690858bf289c80b6cfe41cae5afca2592025eb73906b40a03abed05
   languageName: node
   linkType: hard
 
@@ -6101,9 +6101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hyperswitch-sdk-react-native@https://github.com/aashu331998/hyperswitch-sdk-react-native":
-  version: 0.1.0
-  resolution: "hyperswitch-sdk-react-native@https://github.com/aashu331998/hyperswitch-sdk-react-native.git#commit=b5bd28cac8bd4f3cc713e0256c81668eaf01192b"
+"hyperswitch-sdk-react-native@portal:/Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/hyperswitch-sdk-react-native::locator=hyperswitchReactNativeDemo%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "hyperswitch-sdk-react-native@portal:/Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/hyperswitch-sdk-react-native::locator=hyperswitchReactNativeDemo%40workspace%3A."
   peerDependencies:
     "@sentry/react-native": ^5.9.1
     react: "*"
@@ -6111,9 +6111,8 @@ __metadata:
     react-native-code-push: ^8.1.0
     react-native-inappbrowser-reborn: ^3.7.0
     react-native-svg: ^13.13.0
-  checksum: 10c0/a76dfe18ddf541171fb84b39eb6973eff9ba11d2a73b539c40341fd2a48f077fad71ab4d09eaa8cc692905fb5d7cdaf0d207f8341cf29b99f5aca0462af250af
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "hyperswitchReactNativeDemo@workspace:.":
   version: 0.0.0-use.local
@@ -6136,7 +6135,7 @@ __metadata:
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.19.0"
     express: "npm:^4.19.2"
-    hyperswitch-sdk-react-native: "https://github.com/aashu331998/hyperswitch-sdk-react-native"
+    hyperswitch-sdk-react-native: /Users/kuntimaddi.manideep/hyperswitch-base/hyperswitchReactNativeDemo/hyperswitch-sdk-react-native
     jest: "npm:^29.6.3"
     prettier: "npm:2.8.8"
     react: "npm:18.3.1"
@@ -10928,11 +10927,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.2.1":
-  version: 2.5.0
-  resolution: "yaml@npm:2.5.0"
+  version: 2.5.1
+  resolution: "yaml@npm:2.5.1"
   bin:
     yaml: bin.mjs
-  checksum: 10c0/771a1df083c8217cf04ef49f87244ae2dd7d7457094425e793b8f056159f167602ce172aa32d6bca21f787d24ec724aee3cecde938f6643564117bd151452631
+  checksum: 10c0/40fba5682898dbeeb3319e358a968fe886509fab6f58725732a15f8dda3abac509f91e76817c708c9959a15f786f38ff863c1b88062d7c1162c5334a7d09cb4a
   languageName: node
   linkType: hard
 
