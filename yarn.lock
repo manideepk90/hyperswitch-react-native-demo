@@ -6148,7 +6148,7 @@ __metadata:
     react-native-pager-view: "npm:^6.4.1"
     react-native-safe-area-context: "npm:^4.10.9"
     react-native-screens: "npm:^3.34.0"
-    react-native-svg: "npm:^13.13.0"
+    react-native-svg: "npm:^15.6.0"
     react-test-renderer: "npm:18.3.1"
     rescript: "npm:latest"
     rescript-react-native: "npm:^0.73.1"
@@ -9083,16 +9083,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-svg@npm:^13.13.0":
-  version: 13.14.1
-  resolution: "react-native-svg@npm:13.14.1"
+"react-native-svg@npm:^15.6.0":
+  version: 15.6.0
+  resolution: "react-native-svg@npm:15.6.0"
   dependencies:
     css-select: "npm:^5.1.0"
     css-tree: "npm:^1.1.3"
+    warn-once: "npm:0.1.1"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/4889d07dc51605842eedc6a6537580e88c61faa8b10771dfddb5b11e5df92e0fe9bfa64ba1d19375c70be9bddd8d3b27c09af42a3a9b17841408bc3f0eef0acb
+  checksum: 10c0/213b6ee33651bb7d2dd17a51c62981264fc519283dc14493361e7816005e2a7b5f2784af11076129bd7402ae2dc0104478f5bd8f894d55f8d4c82c65060bbac6
   languageName: node
   linkType: hard
 
@@ -10655,7 +10656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"warn-once@npm:^0.1.0":
+"warn-once@npm:0.1.1, warn-once@npm:^0.1.0":
   version: 0.1.1
   resolution: "warn-once@npm:0.1.1"
   checksum: 10c0/f531e7b2382124f51e6d8f97b8c865246db8ab6ff4e53257a2d274e0f02b97d7201eb35db481843dc155815e154ad7afb53b01c4d4db15fb5aa073562496aff7
