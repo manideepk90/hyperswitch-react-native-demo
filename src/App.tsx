@@ -1,14 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -17,7 +9,7 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PaymentScreen from './PaymentScreen';
-import {HyperProvider} from 'hyperswitch-sdk-react-native/src';
+import {HyperProvider} from '../hyperswitch-sdk-react-native/src';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,29 +48,28 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <HyperProvider publishableKey={'pk_snd_3b33cd9404234113804aa1accaabe22f'}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <ScrollView>
-          <Section title="Payment">
-            <PaymentScreen />
-          </Section>
-        </ScrollView>
-      </SafeAreaView>
-    </HyperProvider>
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <Section title="Payment">
+        <HyperProvider
+          publishableKey={'pk_snd_fa953e98ace046ef9b11330ba1ff0a46'}>
+          <PaymentScreen />
+        </HyperProvider>
+      </Section>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
-    paddingHorizontal: 24,
   },
   sectionTitle: {
     fontSize: 24,
+    paddingHorizontal: 24,
     fontWeight: '600',
   },
   sectionDescription: {

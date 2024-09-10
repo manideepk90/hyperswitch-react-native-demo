@@ -40,17 +40,13 @@ app.post('/create-payment', async (req, res) => {
   try {
     const paymentIntent = await hyper.paymentIntents.create({
       amount: 2999,
-      currency: 'USD',
-      customer_id: 'shivam',
-      profile_id: 'pro_E6k4XxWE3fVzTIYDMzJa',
+      currency: 'USD'
     });
 
     console.log('-- paymentIntent', paymentIntent);
     // Send publishable key and PaymentIntent details to client
     res.send({
-      clientSecret: paymentIntent.client_secret,
-      customerId: paymentIntent.ephemeral_key.customer_id,
-      ephemeralKey: paymentIntent.ephemeral_key.secret,
+      clientSecret: paymentIntent.client_secret
     });
   } catch (err) {
     return res.status(400).send({
