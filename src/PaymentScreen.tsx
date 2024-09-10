@@ -9,7 +9,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import {sessionParams, useHyper} from './../hyperswitch-sdk-react-native/src';
+import {sessionParams, useHyper} from '../hyperswitch-sdk-react-native/src';
 import fetchPaymentParams from '../utils/fetchPaymentParams';
 
 export default function PaymentScreen() {
@@ -25,12 +25,13 @@ export default function PaymentScreen() {
     setLoading(true);
     try {
       const key = await fetchPaymentParams();
-      console.log("key from server ",key);
+      console.log('key from server ', key);
       const paymentSheetParamsResult = await initPaymentSession(key);
       setPaymentSheetParams(paymentSheetParamsResult);
     } catch (err) {
       setError('Failed to load Client Secret');
     }
+    setError('');
     setLoading(false);
   };
 
@@ -39,12 +40,9 @@ export default function PaymentScreen() {
   }, []);
 
   const checkout = async () => {
-    console.log('paymentSheetParams', paymentSheetParams);
-
     const params: sessionParams = {
       ...(paymentSheetParams as sessionParams),
       configuration: {
-        merchantDisplayName: 'Manideep',
         appearance: {
           themes: isDarkMode ? 'dark' : 'light',
           primaryButton: {
@@ -76,7 +74,7 @@ export default function PaymentScreen() {
         setMessage('Payment cancelled by user.');
         setup();
         break;
-      case 'succeded':
+      case 'succeeded':
         setMessage('Payment Success..');
         break;
       case 'failed':
@@ -88,7 +86,7 @@ export default function PaymentScreen() {
   };
 
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.container}>
       <TouchableOpacity
         disabled={loading}
         onPress={setup}
@@ -117,15 +115,22 @@ export default function PaymentScreen() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    width: Dimensions.get('screen').width - 50,
-    height: Dimensions.get('screen').height - 50,
-    gap: 20,
+  // wrapper: {
+  //   width: Dimensions.get('screen').width - 50,
+  //   height: Dimensions.get('screen').height - 50,
+  //   gap: 20,
+  //   alignItems: 'center',
+  // },
+  container: {
+    width: Dimensions.get('window').width,
+    // width: '100%',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     alignItems: 'center',
+    gap: 10,
   },
   button: {
-    width: '100%',
-    height: 60,
+    width: '80%',
     backgroundColor: '#3680ef',
     padding: 10,
     alignItems: 'center',
@@ -139,9 +144,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 19,
   },
-  messageText: {},
+  messageText: {
+    width: '100%',
+  },
   textView: {
     color: '#f00',
+    width: '100%',
+
     fontSize: 21,
   },
 });

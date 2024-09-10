@@ -15,7 +15,7 @@
         "in-source": true
       }
     ],
-    "suffix": ".res.js",
+    "suffix": ".bs.js",
     "bs-dependencies": [
       "@rescript/core",
       "rescript-react-native",
