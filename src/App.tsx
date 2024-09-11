@@ -56,7 +56,7 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <HyperProvider publishableKey={'pk_snd_3b33cd9404234113804aa1accaabe22f'}>
+    <HyperProvider publishableKey={process.env.HYPERSWITCH_PUBLISHABLE_KEY}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}

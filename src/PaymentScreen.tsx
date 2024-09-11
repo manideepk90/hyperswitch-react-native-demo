@@ -25,7 +25,7 @@ export default function PaymentScreen() {
     setLoading(true);
     try {
       const key = await fetchPaymentParams();
-      console.log("key from server ",key);
+      console.log('key from server ', key);
       const paymentSheetParamsResult = await initPaymentSession(key);
       setPaymentSheetParams(paymentSheetParamsResult);
     } catch (err) {
@@ -70,20 +70,19 @@ export default function PaymentScreen() {
       branding: 'auto',
     };
     const paymentSheetResponse = await presentPaymentSheet(params);
-    console.log(paymentSheetResponse);
     switch (paymentSheetResponse?.status) {
       case 'cancelled':
         setMessage('Payment cancelled by user.');
         setup();
         break;
-      case 'succeded':
+      case 'succeeded':
         setMessage('Payment Success..');
         break;
       case 'failed':
         setError(paymentSheetResponse?.message);
         setMessage('');
       default:
-        setMessage('Something went wrong... Reload Client Secret');
+        setMessage(paymentSheetResponse?.message);
     }
   };
 
