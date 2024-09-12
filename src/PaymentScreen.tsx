@@ -27,6 +27,7 @@ export default function PaymentScreen() {
     } catch (err) {
       setError('Failed to load Client Secret');
     }
+    setError('');
     setLoading(false);
   }, []);
 
@@ -107,6 +108,7 @@ const defaultStyles = StyleSheet.create({
     height: Dimensions.get('screen').height - 50,
     gap: 20,
     alignItems: 'center',
+    gap: 10,
   },
 });
 
