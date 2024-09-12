@@ -16,47 +16,37 @@ function getPublishableKey() {
 app.get('/', async (req, res) => {
   res.send('The server is running fine');
 });
+// console.log('Secret key -------->' + getSecretKey());
+// console.log('Publishable key ---> ' + getPublishableKey());
 
-// // Create a Payment with the order amount and currency
-// app.post('/create-payment', async (req, res) => {
-//   try {
-//     const paymentIntent = await hyper.paymentIntents.create({
-//       currency: 'USD',
-//       amount: 500,
-//     });
-//     // Send publishable key and PaymentIntent details to client
-//     res.send({
-//       clientSecret: paymentIntent.client_secret,
-//     });
-//   } catch (err) {
-//     return res.status(400).send({
-//       error: {
-//         message: err.message,
-//       },
-//     });
-//   }
-// });
+app.post('/get-config', async (req, res) => {
+  try {
+    res.send({
+      publishableKey: getPublishableKey(),
+    });
+  } catch (err) {
+    return res.status(400).send({
+      error: {
+        message: err.message,
+      },
+    });
+  }
+});
 app.post('/create-payment', async (req, res) => {
   try {
-    // const paymentIntent = await hyper.paymentIntents.create({
-    //   amount: 2999,
-    //   currency: 'USD',
-    // });
-
-    // console.log('-- paymentIntent', paymentIntent);
-    // // Send publishable key and PaymentIntent details to client
-    // res.send({
-    //   clientSecret: paymentIntent.client_secret,
-    // });
     const paymentIntent = await hyper.paymentIntents.create({
       amount: 2999,
       currency: 'USD',
+      customer_id: 'shivam',
+      profile_id: 'pro_neyxCYTLoxgPBD2pQZYB',
     });
 
-    console.log('-- paymentIntent', paymentIntent);
+    // console.log('-- paymentIntent', paymentIntent);
     // Send publishable key and PaymentIntent details to client
     res.send({
       clientSecret: paymentIntent.client_secret,
+      customerId: paymentIntent.ephemeral_key.customer_id,
+      ephemeralKey: paymentIntent.ephemeral_key.secret,
     });
   } catch (err) {
     return res.status(400).send({

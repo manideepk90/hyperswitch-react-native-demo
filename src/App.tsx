@@ -1,93 +1,76 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {StatusBar, useColorScheme, StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import PaymentScreen from './PaymentScreen';
 import {HyperProvider} from 'hyperswitch-sdk-react-native/src';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Section from './Section';
+import PaymentScreen from './PaymentScreen';
+import HeadlessScreen from './HeadlessScreen';
+import {useEffect, useMemo, useState} from 'react';
+import getPublishableKey from './utils/getPublishableKey';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const navOptions = ['Payment', 'Headless'];
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+const HomeScreen = ({navigation}: any) => (
+  <Section title="Payment" navigation={navigation} options={navOptions}>
+    <PaymentScreen />
+  </Section>
+);
 
+const Headless = ({navigation}: any) => (
+  <Section title="Headless" navigation={navigation} options={navOptions}>
+    <HeadlessScreen />
+  </Section>
+);
+
+const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const [publishableKey, setPublishableKey] = useState<string | null>(null);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  // Memoize the backgroundStyle
+  const backgroundStyle = useMemo(
+    () => ({
+      backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    }),
+    [isDarkMode],
+  );
+
+  useEffect(() => {
+    const getKey = async () => {
+      const key = await getPublishableKey();
+      setPublishableKey(key);
+    };
+
+    // Fetch publishable key if not already set
+    if (!publishableKey) {
+      getKey();
+    }
+  }, [publishableKey]);
+
   return (
-    <HyperProvider publishableKey={process.env.HYPERSWITCH_PUBLISHABLE_KEY}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <ScrollView>
-          <Section title="Payment">
-            <PaymentScreen />
-          </Section>
-        </ScrollView>
-      </SafeAreaView>
+    <HyperProvider publishableKey={publishableKey}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Payment"
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="Payment" component={HomeScreen} />
+          <Stack.Screen name="Headless" component={Headless} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </HyperProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  container: {
+    flex: 1,
   },
 });
 
